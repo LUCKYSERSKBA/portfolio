@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aadhi XD — Developer</title>
+    
+    <!-- ഗൂഗിൾ വെരിഫിക്കേഷൻ കോഡ് താഴെ കൊടുത്തിരിക്കുന്ന സ്ഥലത്ത് പേസ്റ്റ് ചെയ്യുക -->
+    <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE_HERE">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #0b0f19;
+            color: #8b949e;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+        .top-nav {
+            font-size: 13px;
+            color: #8b949e;
+            margin-bottom: 25px;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding-bottom: 5px;
+        }
+        .top-nav span {
+            color: #3fb950;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+        .top-nav a {
+            color: #8b949e;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+        .top-nav a:hover {
+            color: #f0f6fc;
+        }
+        .terminal-card {
+            background-color: #0d1117;
+            border: 1px solid #1f382b;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .dot {
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 6px;
+        }
+        .dot-red { background-color: #ff5f56; }
+        .dot-yellow { background-color: #ffbd2e; }
+        .dot-green { background-color: #27c93f; }
+        .window-title {
+            color: #8b949e;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+        .prompt {
+            color: #3fb950;
+            font-weight: bold;
+        }
+        .command {
+            color: #f0f6fc;
+            font-weight: bold;
+        }
+        .output {
+            margin-top: 8px;
+            margin-bottom: 15px;
+            color: #8b949e;
+            white-space: pre-wrap;
+        }
+        .main-title {
+            color: #3fb950;
+            font-size: 28px;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(63, 185, 80, 0.4);
+            margin: 10px 0;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            background-color: #00ff66;
+            color: #000;
+            text-align: center;
+            padding: 12px;
+            font-weight: bold;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-bottom: 12px;
+            font-family: inherit;
+            box-shadow: 0 0 15px rgba(0, 255, 102, 0.3);
+        }
+        .action-box {
+            background-color: #0d1117;
+            border: 1px solid #21262d;
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 12px;
+            text-decoration: none;
+            display: block;
+            color: #8b949e;
+            transition: 0.2s;
+        }
+        .action-box:hover {
+            border-color: #3fb950;
+        }
+        .action-title {
+            color: #8b949e;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .action-value {
+            color: #f0f6fc;
+            font-size: 15px;
+            margin-top: 4px;
+        }
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
+        }
+        .tag {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            color: #3fb950;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+        a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 16px;
+            background-color: #3fb950;
+            animation: blink 1s infinite;
+            vertical-align: middle;
+            margin-left: 2px;
+        }
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="top-nav">
+            <span>~/aadhi</span> / <a href="#about">about</a> / <a href="#skills">skills</a> / <a href="#projects">projects</a> / <a href="#contact">contact</a>
+        </div>
+
+        <div class="terminal-card">
+            <div class="terminal-header">
+                <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
+                <span class="window-title">bash — aadhi@portfolio</span>
+            </div>
+            <p><span class="prompt">aadhi@dev : ~ $</span> <span class="command">whoami</span></p>
+            <div class="main-title" id="out1"></div>
+
+            <p><span class="prompt">aadhi@dev : ~ $</span> <span class="command">cat role.txt</span></p>
+            <div class="output" id="out2"></div>
+
+            <p><span class="prompt">aadhi@dev : ~ $</span> <span class="command">cat interests.txt</span></p>
+            <div class="output" id="out3"></div>
+
+            <p><span class="prompt">aadhi@dev : ~ $</span> <span class="command">cat status.txt</span></p>
+            <div class="output" style="color: #ffbd2e;" id="out4"></div>
+        </div>
+
+        <a href="#projects" class="btn">VIEW_PROJECTS()</a>
+        <a href="https://github.com/Aadhixd777" target="_blank" class="action-box">
+            <div class="action-title">GITHUB PROFILE</div>
+            <div class="action-value">@Aadhixd777</div>
+        </a>
+        <a href="#contact" class="btn" style="background-color: #1f382b; color: #3fb950; border: 1px solid #3fb950;">CONTACT.ME()</a>
+
+        <div class="terminal-card" id="about" style="margin-top: 20px;">
+            <p><span class="prompt">$</span> <span class="command" style="color: #3fb950;">CAT ABOUT.MD</span></p>
+            <div class="output" id="out5" style="margin-top: 15px; border-left: 2px solid #3fb950; padding-left: 12px;"></div>
+        </div>
+
+        <div class="terminal-card" id="skills">
+            <p><span class="prompt">$</span> <span class="command" style="color: #3fb950;">CAT SKILLS.JSON</span></p>
+            
+            <div style="margin-top: 15px;">
+                <div style="color: #3fb950; font-weight: bold; margin-bottom: 5px;">{} LANGUAGES</div>
+                <div class="skills-grid">
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">TypeScript</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">Golang</span>
+                </div>
+            </div>
+
+            <div style="margin-top: 15px;">
+                <div style="color: #58a6ff; font-weight: bold; margin-bottom: 5px;">▶ RUNTIME & FRAMEWORKS</div>
+                <div class="skills-grid">
+                    <span class="tag">Node.js</span>
+                    <span class="tag">Next.js</span>
+                    <span class="tag">React</span>
+                    <span class="tag">Express.js</span>
+                </div>
+            </div>
+
+            <div style="margin-top: 15px;">
+                <div style="color: #ffbd2e; font-weight: bold; margin-bottom: 5px;">⌖ DATABASES</div>
+                <div class="skills-grid">
+                    <span class="tag">MongoDB</span>
+                    <span class="tag">PostgreSQL</span>
+                    <span class="tag">Redis</span>
+                </div>
+            </div>
+
+            <div style="margin-top: 15px;">
+                <div style="color: #ff7b72; font-weight: bold; margin-bottom: 5px;">⚙ INFRA & TOOLS</div>
+                <div class="skills-grid">
+                    <span class="tag">Docker</span>
+                    <span class="tag">Linux</span>
+                    <span class="tag">Git</span>
+                    <span class="tag">GitHub</span>
+                </div>
+            </div>
+
+            <div style="margin-top: 15px;">
+                <div style="color: #27c93f; font-weight: bold; margin-bottom: 5px;">★ SPECIALTIES</div>
+                <div class="skills-grid">
+                    <span class="tag">Bot Development</span>
+                    <span class="tag">REST APIs</span>
+                    <span class="tag">Automation</span>
+                    <span class="tag">Vibe Coding</span>
+                    <span class="tag">ZORO-MD</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="terminal-card" id="projects">
+            <p><span class="prompt">$</span> <span class="command" style="color: #3fb950;">LS -LA ./PROJECTS</span></p>
+            
+            <div style="background-color: #0b0f19; border: 1px solid #1f382b; border-radius: 6px; padding: 15px; margin-top: 15px;">
+                <span style="color: #3fb950; font-size: 12px; font-weight: bold;">★ FEATURED</span>
+                <div style="color: #3fb950; font-size: 18px; font-weight: bold; margin: 5px 0;">ZORO-MD</div>
+                <div style="color: #8b949e; font-size: 14px; margin-bottom: 10px;">Advanced WhatsApp multi-device bot built on Baileys.</div>
+                <div class="skills-grid" style="margin-bottom: 10px;">
+                    <span class="tag">WhatsApp</span>
+                    <span class="tag">Bot</span>
+                    <span class="tag">Node.js</span>
+                    <span class="tag">Baileys</span>
+                </div>
+                <div>Repo: <a href="https://github.com/Aadhixd777/ZORO-MD" target="_blank">github.com/Aadhixd777/ZORO-MD</a></div>
+            </div>
+        </div>
+
+        <div class="terminal-card" id="contact">
+            <p><span class="prompt">$</span> <span class="command" style="color: #3fb950;">CAT CONTACT.TXT</span></p>
+            <div class="output" style="margin-top: 10px;">Always open to collaborating on interesting projects or just talking code. Ping me anytime.</div>
+            
+            <a href="https://github.com/Aadhixd777" target="_blank" class="action-box">
+                <div class="action-title">GitHub</div>
+                <div class="action-value">@Aadhixd777</div>
+            </a>
+            <a href="mailto:aadhixd204@gmail.com" class="action-box">
+                <div class="action-title">Email</div>
+                <div class="action-value">aadhixd204@gmail.com</div>
+            </a>
+            <a href="https://wa.me/918136880986" target="_blank" class="action-box">
+                <div class="action-title">WhatsApp</div>
+                <div class="action-value">+91 81368 80986</div>
+            </a>
+            <a href="https://www.instagram.com/aadhi.x._______________" target="_blank" class="action-box">
+                <div class="action-title">Instagram</div>
+                <div class="action-value">@aadhi.x._______________</div>
+            </a>
+        </div>
+
+        <p><span class="prompt">aadhi@dev : ~ $</span> <span class="command"></span><span class="cursor"></span></p>
+
+        <div style="text-align: center; color: #8b949e; font-size: 13px; margin-top: 30px; margin-bottom: 20px;">
+            ✓ built with Next.js • designed in the terminal &copy; 2026 Aadhi XD
+        </div>
+
+    </div>
+
+    <script>
+        const text1 = "Aadhi XD";
+        const text2 = "Full-Stack Developer • Bot Developer • Python Developer";
+        const text3 = "Automation • Backend Systems • WhatsApp Bots • Open Source • Problem Solving";
+        const text4 = "always building something. 🚀";
+        const text5 = "Hey, I'm Aadhi XD, a self-taught developer from Kerala, India passionate about learning new tech.<br><br>I work primarily with <span style='color: #ffbd2e;'>Node.js</span> and <span style='color: #58a6ff;'>Python</span>, love to debug and solve problems.<br><br>Open to collaboration on interesting projects. Let's build something cool together.<br><br>📍 Kerala, India (UTC +05:30)";
+
+        function typeWriter(text, elementId, speed, callback) {
+            let i = 0;
+            const element = document.getElementById(elementId);
+            let currentContent = "";
+            
+            function type() {
+                if (i < text.length) {
+                    if (text.substr(i, 4) === "<br>" || text.substr(i, 5) === "<span" || text.substr(i, 6) === "&nbsp;") {
+                        let tagEnd = text.indexOf(">", i);
+                        if (tagEnd !== -1) {
+                            currentContent += text.substring(i, tagEnd + 1);
+                            i = tagEnd + 1;
+                        } else {
+                            currentContent += text.charAt(i);
+                            i++;
+                        }
+                    } else if (text.substr(i, 7) === "</span>") {
+                        currentContent += "</span>";
+                        i += 7;
+                    } else {
+                        currentContent += text.charAt(i);
+                        i++;
+                    }
+                    element.innerHTML = currentContent;
+                    setTimeout(type, speed);
+                } else if (callback) {
+                    callback();
+                }
+            }
+            type();
+        }
+
+        setTimeout(() => {
+            typeWriter(text1, "out1", 30, () => {
+                typeWriter(text2, "out2", 15, () => {
+                    typeWriter(text3, "out3", 15, () => {
+                        typeWriter(text4, "out4", 20, () => {
+                            typeWriter(text5, "out5", 10);
+                        });
+                    });
+                });
+            });
+        }, 300);
+    </script>
+</body>
+</html>
